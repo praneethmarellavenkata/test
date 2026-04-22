@@ -19,6 +19,7 @@ def complete_tasks(index):
 def main():
     add_task("Buy groceries")
     add_task("Learn Git")
+    complete_tasks(2)
     list_tasks()
 
 if __name__ == "__main__":

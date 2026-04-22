@@ -13,7 +13,7 @@ def list_tasks():
         print(f"{i}. [{status}] {task['title']}")
 
 def complete_tasks(index):
-    tasks[index - 1]["done"] = True
+    
     print(f"Completed: {tasks[index - 1]['title']}")
 
 def main():

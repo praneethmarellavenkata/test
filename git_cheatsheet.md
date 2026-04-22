@@ -102,25 +102,4 @@ git log -- filename.txt         # history of a specific file
 
 ---
 
-## LESSON 7 — Seeing What Changed
-
-### `git diff`
-See exactly what lines changed, before staging or committing.
-
-```bash
-git diff                    # unstaged changes (working dir vs last commit)
-git diff --staged           # staged changes (staging area vs last commit)
-git diff HEAD               # all changes since last commit (staged + unstaged)
-git diff abc123 def456      # diff between two specific commits
-```
-
-**Reading the output:**
-- `-` red lines = what was removed
-- `+` green lines = what was added
-- `@@` header = which line number the change is near
-
-**Gotcha:** `git diff` goes silent after `git add` — use `git diff --staged` to see staged changes.
-
----
-
 <!-- NEW LESSONS WILL BE ADDED HERE -->

@@ -102,4 +102,63 @@ git log -- filename.txt         # history of a specific file
 
 ---
 
+## LESSON 7 — Seeing What Changed
+
+### `git diff`
+See exactly what lines changed, before staging or committing.
+
+```bash
+git diff                    # unstaged changes (working dir vs last commit)
+git diff --staged           # staged changes (staging area vs last commit)
+git diff HEAD               # all changes since last commit (staged + unstaged)
+git diff abc123 def456      # diff between two specific commits
+```
+
+**Reading the output:**
+- `-` red lines = what was removed
+- `+` green lines = what was added
+- `@@` header = which line number the change is near
+
+**Gotcha:** `git diff` goes silent after `git add` — use `git diff --staged` to see staged changes.
+
+---
+
+## LESSON 8 — Undoing Mistakes
+
+### `git restore`
+Discard changes in working directory or unstage files.
+
+```bash
+git restore filename.txt            # throw away unstaged changes (can't undo this!)
+git restore --staged filename.txt   # unstage a file (change stays in your file)
+git restore --staged .              # unstage everything
+```
+
+### `git reset`
+Undo commits (local only — don't use on pushed commits).
+
+```bash
+git reset --soft HEAD~1     # undo last commit, keep changes staged
+git reset --mixed HEAD~1    # undo last commit, keep changes unstaged (default)
+git reset --hard HEAD~1     # undo last commit AND discard all changes (destructive)
+```
+
+### `git revert`
+Safely undo a commit by creating a new "undo" commit. Use this after pushing.
+
+```bash
+git revert HEAD             # undo the last commit (safe, keeps history intact)
+git revert abc123           # undo a specific commit by hash
+```
+
+**Which to use:**
+| Situation | Command |
+|---|---|
+| Bad edit, not staged yet | `git restore filename` |
+| Staged but not committed | `git restore --staged filename` |
+| Committed, not pushed yet | `git reset --soft HEAD~1` |
+| Committed and pushed | `git revert HEAD` |
+
+---
+
 <!-- NEW LESSONS WILL BE ADDED HERE -->

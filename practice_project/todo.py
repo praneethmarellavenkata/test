@@ -12,6 +12,11 @@ def list_tasks():
         status = "✓" if task["done"] else "○"
         print(f"{i}. [{status}] {task['title']}")
 
+def complete_task(index):
+    tasks[index - 1]["done"] = True
+    print(f"Completed: {tasks[index - 1]['title']}")
+
+
 def main():
     add_task("Buy groceries")
     add_task("Learn Git")

@@ -161,4 +161,33 @@ git revert abc123           # undo a specific commit by hash
 
 ---
 
+## LESSON 9 — Ignoring Files
+
+### `.gitignore`
+A file you create at the root of your repo telling Git which files to never track.
+
+```
+*.log               # ignore all log files
+.env                # ignore a specific file (secrets!)
+__pycache__/        # ignore an entire folder
+*.pyc               # ignore Python bytecode
+!important.log      # un-ignore a specific file (exception to a rule)
+```
+
+```bash
+git status          # ignored files won't appear here at all
+git rm --cached filename    # stop tracking a file that was already committed
+```
+
+**Common things to always ignore:**
+- `.env` — API keys, passwords, secrets
+- `__pycache__/`, `*.pyc` — Python bytecode
+- `node_modules/` — JS dependencies
+- `*.log` — log files
+- `.DS_Store` — Mac OS folder metadata
+
+**Gotcha:** Adding a file to `.gitignore` after it's already been committed does NOT remove it from history. Use `git rm --cached` first.
+
+---
+
 <!-- NEW LESSONS WILL BE ADDED HERE -->

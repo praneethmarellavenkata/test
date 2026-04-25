@@ -20,7 +20,7 @@ def main():
     print("--- Todo List ---")
     add_task("Buy groceries")
     add_task("Learn Git")
-    complete_tasks(2)
+    complete_tasks(3)
     list_tasks()
 
 if __name__ == "__main__":

@@ -17,11 +17,7 @@ def complete_tasks(index):
     print(f"Completed: {tasks[index - 1]['title']}")
 
 def main():
-<<<<<<< HEAD
     print("--- Todo List ---")
-=======
-    print("=== My Todo App ===")
->>>>>>> feature/styling
     add_task("Buy groceries")
     add_task("Learn Git")
     complete_tasks(2)

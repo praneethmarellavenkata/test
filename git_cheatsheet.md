@@ -190,4 +190,55 @@ git rm --cached filename    # stop tracking a file that was already committed
 
 ---
 
+## LESSON 10 — Branches
+
+### `git branch` / `git switch`
+Create and navigate independent lines of work.
+
+```bash
+git branch                          # list all branches (* = current)
+git branch feature/my-feature       # create a new branch
+git switch feature/my-feature       # jump to a branch
+git switch -c feature/my-feature    # create + switch in one step
+git switch main                     # go back to main
+git branch -d feature/my-feature    # delete a merged branch
+git branch -D feature/my-feature    # force delete (even if unmerged)
+```
+
+**Mental model:**
+```
+main:     A --- B --- C
+                       \
+feature:                D --- E   ← your work, isolated
+```
+
+**Key insight:** Commits on a branch only exist on that branch until merged. Switching branches changes your actual files.
+
+---
+
+## LESSON 11 — Merging
+
+### `git merge`
+Bring branch work back into main.
+
+```bash
+git switch main
+git merge feature/my-feature        # merge branch into current branch
+git branch -d feature/my-feature    # clean up after merging
+```
+
+**Fast-forward merge:** Happens when main hasn't changed — Git just moves the pointer. No extra commit.
+
+**Merge conflict:** Happens when both branches edited the same line. Git marks the file:
+```
+<<<<<<< HEAD
+    your version on main
+=======
+    their version on the branch
+>>>>>>> feature/my-feature
+```
+Fix it manually → delete the markers → pick one version → `git add` → `git commit`.
+
+---
+
 <!-- NEW LESSONS WILL BE ADDED HERE -->
